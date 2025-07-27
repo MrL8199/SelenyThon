@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khóa Học Python Selenium - Trang Chủ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+    .header {
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .header p {
+      margin: 0.5rem 0 0 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .course-overview {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .chapters {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .chapter-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-left: 5px solid #4CAF50;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .chapter-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .chapter-card h3 {
+      margin: 0 0 1rem 0;
+      color: #2c3e50;
+    }
+    .chapter-card p {
+      margin: 0 0 1rem 0;
+      color: #666;
+    }
+    .chapter-link {
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+    .chapter-link:hover {
+      background: #45a049;
+      text-decoration: none;
+    }
+    .features {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+    .features li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    .features li:before {
+      content: "✅ ";
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    .features li:last-child {
+      border-bottom: none;
+    }
+    .footer {
+      text-align: center;
+      color: #666;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ddd;
+    }
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 0.5rem;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+    .getting-started {
+      background: #e8f5e8;
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .getting-started h3 {
+      margin-top: 0;
+      color: #2e7d32;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .header h1 {
+        font-size: 2rem;
+      }
+      .header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🐍 Python Selenium Course</h1>
+  <p>Học lập trình tự động hóa kiểm thử web từ cơ bản đến nâng cao</p>
+</div>
+
+<div class="getting-started">
+  <h3>🚀 Bắt đầu ngay hôm nay!</h3>
+  <p>Chào mừng bạn đến với khóa học Python Selenium! Đây là khóa học hoàn toàn miễn phí, được thiết kế để giúp bạn học từ những kiến thức cơ bản nhất về Python và Selenium cho đến việc viết các bài kiểm thử tự động chuyên nghiệp.</p>
+</div>
+
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-number">2+</div>
+    <div>Chương học</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">100%</div>
+    <div>Miễn phí</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">📚</div>
+    <div>Thực hành</div>
+  </div>
+</div>
+
+<div class="course-overview">
+  <h2>📖 Giới thiệu khóa học</h2>
+  <p>Khóa học này sẽ dẫn dắt bạn qua toàn bộ quá trình học Python Selenium, từ việc cài đặt môi trường làm việc cho đến việc viết các bài kiểm thử tự động phức tạp. Mỗi chương được thiết kế với các ví dụ thực tế và bài tập để bạn có thể áp dụng ngay những kiến thức đã học.</p>
+</div>
+
+<div class="features">
+  <h2>🎯 Bạn sẽ học được gì?</h2>
+  <ul>
+    <li>Cài đặt và cấu hình môi trường Python & Selenium</li>
+    <li>Viết các bài kiểm thử tự động cơ bản</li>
+    <li>Sử dụng các locator để tìm và thao tác với elements</li>
+    <li>Xử lý các tình huống phức tạp trong web automation</li>
+    <li>Best practices cho automation testing</li>
+    <li>Debugging và troubleshooting các vấn đề thường gặp</li>
+  </ul>
+</div>
+
+<div class="chapters">
+  <h2>📚 Danh sách chương</h2>
+
+  <div class="chapter-card">
+    <h3>📘 Chương 1: Cài Đặt Môi Trường Làm Việc</h3>
+    <p>Học cách cài đặt Python, Selenium WebDriver, ChromeDriver và thiết lập môi trường lập trình với Thonny IDE. Viết và chạy đoạn mã Selenium đầu tiên.</p>
+    <p><strong>Nội dung chính:</strong></p>
+    <ul>
+      <li>Cài đặt Python 3 và verify</li>
+      <li>Cài đặt Selenium package</li>
+      <li>Tải và cấu hình ChromeDriver</li>
+      <li>Thiết lập Thonny IDE</li>
+      <li>Viết script đầu tiên để mở Google</li>
+    </ul>
+    <a href="PythonSelenium_d1.html" class="chapter-link">Bắt đầu học →</a>
+  </div>
+
+  <div class="chapter-card">
+    <h3>📘 Chương 2: Viết Bài Test Đầu Tiên với Selenium</h3>
+    <p>Học cách viết các bài kiểm thử tự động thực tế với Selenium. Thực hành với trang web kiểm thử và viết test cases cho các tình huống đăng nhập.</p>
+    <p><strong>Nội dung chính:</strong></p>
+    <ul>
+      <li>Tìm hiểu về test cases</li>
+      <li>Sử dụng send_keys() và click() methods</li>
+      <li>Kiểm tra kết quả với element.text</li>
+      <li>Viết test cho đăng nhập thành công và thất bại</li>
+      <li>Tổ chức code với functions</li>
+    </ul>
+    <a href="PythonSelenium_d2.html" class="chapter-link">Tiếp tục học →</a>
+  </div>
+
+  <div class="chapter-card" style="opacity: 0.7; border-left-color: #ccc;">
+    <h3>📘 Chương 3: Tìm Hiểu Về Các Locator (Sắp ra mắt)</h3>
+    <p>Chương này sẽ hướng dẫn bạn về các cách khác nhau để tìm elements trên trang web sử dụng các locator strategies như ID, Name, CSS Selector, XPath...</p>
+    <p><strong>Nội dung dự kiến:</strong></p>
+    <ul>
+      <li>Các loại locator cơ bản</li>
+      <li>CSS Selector nâng cao</li>
+      <li>XPath expressions</li>
+      <li>Best practices cho việc chọn locator</li>
+    </ul>
+    <span style="background: #ccc; color: white; padding: 0.5rem 1rem; border-radius: 5px;">Sắp ra mắt</span>
+  </div>
+</div>
+
+<div class="course-overview">
+  <h2>💡 Yêu cầu trước khi học</h2>
+  <ul>
+    <li>Kiến thức cơ bản về máy tính và Internet</li>
+    <li>Có thể cài đặt phần mềm trên máy tính</li>
+    <li>Biết cách sử dụng Terminal/Command Prompt cơ bản</li>
+    <li>Không cần kiến thức lập trình trước đó</li>
+  </ul>
+</div>
+
+<div class="course-overview">
+  <h2>🛠️ Công cụ sử dụng</h2>
+  <ul>
+    <li><strong>Python 3:</strong> Ngôn ngữ lập trình chính</li>
+    <li><strong>Selenium WebDriver:</strong> Thư viện automation testing</li>
+    <li><strong>ChromeDriver:</strong> Driver để điều khiển Chrome browser</li>
+    <li><strong>Thonny IDE:</strong> Môi trường lập trình đơn giản và dễ sử dụng</li>
+    <li><strong>Google Chrome:</strong> Trình duyệt để kiểm thử</li>
+  </ul>
+</div>
+
+<div class="footer">
+  <p>© 2025 Python Selenium Course - Tạo bởi <a href="https://github.com/MrL8199" style="color: #4CAF50;">MrL8199</a></p>
+  <p>📞 Liên hệ hỗ trợ qua GitHub Issues hoặc email</p>
+  <p>🌟 Nếu khóa học hữu ích, hãy cho chúng tôi một star trên GitHub!</p>
+</div>
+
+<script>
+  // Simple analytics to track page views (optional)
+  console.log('Python Selenium Course - Landing Page Loaded');
+
+  // Smooth scrolling for any future anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Add some interactive feedback
+  document.querySelectorAll('.chapter-link').forEach(link => {
+    link.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.05)';
+    });
+
+    link.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
+</script>
+
+</body>
+</html>
