@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chương 2 - Viết Bài Test Đầu Tiên với Selenium</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    code {
+      background-color: #f3f3f3;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      position: relative;
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+    .copy-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .copy-button:hover {
+      background: #45a049;
+    }
+    .note {
+      background: #e1f5fe;
+      border-left: 4px solid #039be5;
+      padding: 10px;
+      margin: 1rem 0;
+    }
+    a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .checklist label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📘 Chương 2: Viết Bài Test Đầu Tiên với Selenium</h1>
+
+<h2>🎯 Mục tiêu chương</h2>
+<div class="checklist">
+  <label><input type="checkbox" data-id="goal-write-test"> Viết bài kiểm thử đầu tiên bằng Selenium</label>
+  <label><input type="checkbox" data-id="goal-use-functions"> Sử dụng hàm của Selenium để điều khiển trình duyệt</label>
+</div>
+
+<h2>🔗 Trang web kiểm thử</h2>
+<p>Chúng ta sẽ kiểm thử tại trang sau:
+<a href="https://the-internet.herokuapp.com/login" target="_blank">
+https://the-internet.herokuapp.com/login</a></p>
+
+<h2>📋 Test case cần thực hiện</h2>
+<div class="checklist">
+  <label><input type="checkbox" data-id="tc-success"> Test Case 1 - Đăng nhập thành công</label>
+  <label><input type="checkbox" data-id="tc-fail"> Test Case 2 - Đăng nhập thất bại</label>
+</div>
+
+<h2>💡 Gợi ý cho người học</h2>
+<div class="checklist">
+  <label><input type="checkbox" data-id="hint-thonny"> Viết test bằng Thonny IDE</label>
+  <label><input type="checkbox" data-id="hint-sendkeys"> Dùng send_keys, click() để thao tác</label>
+  <label><input type="checkbox" data-id="hint-check-msg"> Kiểm tra nội dung trả về bằng element.text</label>
+</div>
+
+<h2>🧪 Code mẫu thực hiện 2 test case</h2>
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+import time
+
+# Hàm login
+def login(driver, username, password):
+    driver.get("https://the-internet.herokuapp.com/login")
+    driver.find_element(By.ID, "username").send_keys(username)
+    driver.find_element(By.ID, "password").send_keys(password)
+    driver.find_element(By.CSS_SELECTOR, "button.radius").click()
+    time.sleep(1)
+    return driver.find_element(By.ID, "flash").text
+
+# Khởi tạo driver
+service = Service(executable_path="./chromedriver")
+driver = webdriver.Chrome(service=service)
+
+# Test Case 1: Đăng nhập đúng
+msg1 = login(driver, "tomsmith", "SuperSecretPassword!")
+print("✅ Test 1:", "Pass" if "You logged into a secure area!" in msg1 else "Fail")
+
+# Quay lại trang login
+driver.get("https://the-internet.herokuapp.com/logout")
+time.sleep(1)
+
+# Test Case 2: Đăng nhập sai
+msg2 = login(driver, "saiuser", "saimatkhau")
+print("✅ Test 2:", "Pass" if "Your username is invalid!" in msg2 else "Fail")
+
+# Kết thúc
+driver.quit()</code></pre>
+
+<div class="note">
+  📌 Sau khi chạy:
+  <ul>
+    <li>Nếu hiện <code>✅ Test 1: Pass</code> và <code>✅ Test 2: Pass</code> → bạn đã thành công</li>
+    <li>Có thể thay đổi username/password để kiểm tra thêm</li>
+  </ul>
+</div>
+
+<h2>📎 Mở rộng cho người học</h2>
+<div class="checklist">
+  <label><input type="checkbox" data-id="ext-assert"> Sử dụng assert thay cho print</label>
+  <label><input type="checkbox" data-id="ext-unittest"> Tổ chức code theo unittest / pytest</label>
+  <label><input type="checkbox" data-id="ext-wait"> Dùng WebDriverWait thay cho time.sleep</label>
+</div>
+
+<!-- JavaScript copy logic -->
+<script>
+  function copyCode(button) {
+    const pre = button.parentElement;
+    const code = pre.querySelector("code").innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      button.textContent = "Copied!";
+      setTimeout(() => { button.textContent = "Copy"; }, 2000);
+    });
+  }
+
+  // Lưu trạng thái checkbox vào localStorage
+  document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+    const key = "checkbox-" + checkbox.dataset.id;
+    // Load trạng thái ban đầu
+    checkbox.checked = localStorage.getItem(key) === "true";
+
+    checkbox.addEventListener("change", () => {
+      localStorage.setItem(key, checkbox.checked);
+    });
+  });
+</script>
+
+</body>
+</html>
