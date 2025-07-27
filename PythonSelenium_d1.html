@@ -151,6 +151,31 @@ driver.quit()</code></pre>
   <label><input type="checkbox" data-id="done-test"> Đã chạy được đoạn mã Selenium đầu tiên</label>
 </div>
 
+<h2>📅 Bài tập về nhà</h2>
+<p>Hãy thử viết một đoạn mã khác để tự động tìm kiếm một từ khóa trên Google. Bạn có thể sử dụng đoạn mã sau làm gợi ý:</p>
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+import time
+
+service = Service(executable_path="./chromedriver.exe")
+driver = webdriver.Chrome(service=service)
+driver.get("https://www.google.com")
+search_box = driver.find_element(By.NAME, "q")
+search_box.send_keys("Python Selenium")
+search_box.submit()
+time.sleep(5)
+driver.quit()</code></pre>
+<p>Chúc bạn thành công!</p>
+
+<!-- Link đến chương 2 -->
+<h2>➡️ Tiếp theo</h2>
+<p><a href="PythonSelenium_d2.html">Chương 2 - Viết Bài Test Đầu Tiên với Selenium</a></p>
+
+<footer>
+  <p>© 2025 Python Selenium Course</p>
+</footer>
+
 <script>
   function copyCode(button) {
     const pre = button.parentElement;
