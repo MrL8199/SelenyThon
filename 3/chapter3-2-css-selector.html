@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>3.2 - CSS Selector nâng cao</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 8px;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 4px 8px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .checklist label {
+      display: block;
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>3.2 - CSS Selector nâng cao</h1>
+  
+        <p>Ví dụ:</p>
+        <pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>input[name="username"]
+div.login-box > input[type="text"]
+#login-form button.submit</code></pre>
+        <div class="checklist">
+          <label><input type="checkbox" data-id="css-basic"> Dùng CSS cơ bản</label>
+          <label><input type="checkbox" data-id="css-nested"> Dùng CSS lồng nhau</label>
+          <label><input type="checkbox" data-id="css-attribute"> Dùng selector theo thuộc tính</label>
+        </div>
+        
+  <script>
+    function copyCode(btn) {
+      const code = btn.parentElement.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = 'Copy', 2000);
+      });
+    }
+
+    document.querySelectorAll("input[type='checkbox']").forEach(cb => {
+      const key = "chapter3-2-" + cb.dataset.id;
+      cb.checked = localStorage.getItem(key) === "true";
+      cb.addEventListener("change", () => {
+        localStorage.setItem(key, cb.checked);
+      });
+    });
+  </script>
+</body>
+</html>
