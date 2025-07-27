@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chương 3.2 - Dropdown, Checkbox và Radio Button</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 8px;
+      position: relative;
+      overflow-x: auto;
+    }
+    pre code {
+      font-family: monospace;
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+    .copy-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .copy-button:hover {
+      background: #45a049;
+    }
+    .checklist label {
+      display: block;
+      margin: 0.5rem 0;
+    }
+    .note {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 10px;
+      margin: 1rem 0;
+    }
+    a {
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📘 Chương 3.2: Dropdown, Checkbox và Radio Button</h1>
+
+<h2>🎯 Mục tiêu</h2>
+<ul>
+  <li>Tương tác với dropdown bằng thư viện <code>Select</code></li>
+  <li>Biết cách tick checkbox, chọn radio button</li>
+  <li>Kiểm tra trạng thái: <code>is_selected()</code></li>
+</ul>
+
+<h2>🔽 Dropdown</h2>
+<p>Website luyện tập: <a href="https://the-internet.herokuapp.com/dropdown" target="_blank">https://the-internet.herokuapp.com/dropdown</a></p>
+
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+import time
+
+driver = webdriver.Chrome(service=Service("./chromedriver"))
+driver.get("https://the-internet.herokuapp.com/dropdown")
+time.sleep(1)
+
+dropdown = Select(driver.find_element(By.ID, "dropdown"))
+dropdown.select_by_visible_text("Option 2")
+time.sleep(1)
+
+driver.quit()</code></pre>
+
+<h2>☑ Checkbox</h2>
+<p>Website luyện tập: <a href="https://the-internet.herokuapp.com/checkboxes" target="_blank">https://the-internet.herokuapp.com/checkboxes</a></p>
+
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>driver.get("https://the-internet.herokuapp.com/checkboxes")
+time.sleep(1)
+
+checkboxes = driver.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+for checkbox in checkboxes:
+    if not checkbox.is_selected():
+        checkbox.click()
+time.sleep(1)</code></pre>
+
+<h2>🔘 Radio button</h2>
+<p>Website luyện tập: <a href="https://testpages.herokuapp.com/styled/basic-html-form-test.html" target="_blank">https://testpages.herokuapp.com/styled/basic-html-form-test.html</a></p>
+
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html")
+time.sleep(1)
+
+radio = driver.find_element(By.CSS_SELECTOR, "input[value='rd1']")
+radio.click()
+time.sleep(1)</code></pre>
+
+<h2>📝 Bài tập gợi ý</h2>
+<ol>
+  <li>Chọn cả Option 1 và Option 2 trong dropdown (nếu được)</li>
+  <li>Tích chọn toàn bộ checkbox, sau đó bỏ chọn từng cái</li>
+  <li>Chọn radio button khác và xác minh bằng <code>is_selected()</code></li>
+</ol>
+
+<h2>✅ Checklist bài 3.2</h2>
+<div class="checklist">
+  <label><input type="checkbox" data-id="dropdown"> Đã thao tác với dropdown</label>
+  <label><input type="checkbox" data-id="checkbox"> Đã tick checkbox</label>
+  <label><input type="checkbox" data-id="radio"> Đã chọn radio button</label>
+  <label><input type="checkbox" data-id="isselected"> Đã dùng is_selected()</label>
+</div>
+
+<script>
+  function copyCode(button) {
+    const pre = button.parentElement;
+    const code = pre.querySelector("code").innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      button.textContent = "Copied!";
+      setTimeout(() => { button.textContent = "Copy"; }, 2000);
+    });
+  }
+
+  document.querySelectorAll("input[type='checkbox']").forEach(cb => {
+    const key = "ch3-2-" + cb.dataset.id;
+    cb.checked = localStorage.getItem(key) === "true";
+    cb.addEventListener("change", () => {
+      localStorage.setItem(key, cb.checked);
+    });
+  });
+</script>
+
+</body>
+</html>

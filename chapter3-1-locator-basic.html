@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chương 3.1 - Các loại Locator và thao tác cơ bản với Selenium</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 8px;
+      position: relative;
+      overflow-x: auto;
+    }
+    pre code {
+      font-family: monospace;
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+    .copy-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .copy-button:hover {
+      background: #45a049;
+    }
+    .checklist label {
+      display: block;
+      margin: 0.5rem 0;
+    }
+    .note {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 10px;
+      margin: 1rem 0;
+    }
+    a {
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📘 Chương 3.1: Các loại Locator và thao tác cơ bản</h1>
+
+<h2>🎯 Mục tiêu</h2>
+<ul>
+  <li>Hiểu được các cách xác định phần tử HTML bằng Selenium</li>
+  <li>Làm quen với `send_keys`, `click`, `.text`, `.get_attribute()`</li>
+</ul>
+
+<h2>🔍 Các loại locator trong Selenium</h2>
+<p>Bạn có thể sử dụng nhiều cách để tìm phần tử:</p>
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>from selenium.webdriver.common.by import By
+
+driver.find_element(By.ID, "id_value")
+driver.find_element(By.NAME, "name_value")
+driver.find_element(By.CLASS_NAME, "class_value")
+driver.find_element(By.CSS_SELECTOR, "css_selector")
+driver.find_element(By.XPATH, "//tag[@attribute='value']")</code></pre>
+
+<h2>🧪 Thực hành: Điền username và password trên site demo</h2>
+<p>Trang web luyện tập: 
+<a href="https://the-internet.herokuapp.com/login" target="_blank">https://the-internet.herokuapp.com/login</a></p>
+
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+import time
+
+service = Service(executable_path="./chromedriver")
+driver = webdriver.Chrome(service=service)
+
+driver.get("https://the-internet.herokuapp.com/login")
+time.sleep(1)
+
+# Thao tác bằng nhiều loại locator
+driver.find_element(By.ID, "username").send_keys("tomsmith")
+driver.find_element(By.NAME, "password").send_keys("SuperSecretPassword!")
+driver.find_element(By.CLASS_NAME, "radius").click()
+
+time.sleep(2)
+msg = driver.find_element(By.ID, "flash").text
+print("Kết quả:", msg)
+
+driver.quit()</code></pre>
+
+<h2>📝 Bài tập gợi ý</h2>
+<ol>
+  <li>Thử đổi sang sử dụng <code>By.XPATH</code> hoặc <code>By.CSS_SELECTOR</code></li>
+  <li>In ra <code>.get_attribute("class")</code> hoặc <code>.text</code> của nút Login</li>
+  <li>Tự tìm phần tử bất kỳ trên trang và thao tác click</li>
+</ol>
+
+<h2>✅ Checklist bài 3.1</h2>
+<div class="checklist">
+  <label><input type="checkbox" data-id="by-id"> Đã dùng By.ID để tìm phần tử</label>
+  <label><input type="checkbox" data-id="by-xpath"> Đã thử dùng By.XPATH</label>
+  <label><input type="checkbox" data-id="by-css"> Đã dùng By.CSS_SELECTOR</label>
+  <label><input type="checkbox" data-id="sendkeys"> Đã dùng send_keys để nhập dữ liệu</label>
+  <label><input type="checkbox" data-id="gettext"> Đã lấy text hoặc attribute từ element</label>
+</div>
+
+<script>
+  function copyCode(button) {
+    const pre = button.parentElement;
+    const code = pre.querySelector("code").innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      button.textContent = "Copied!";
+      setTimeout(() => { button.textContent = "Copy"; }, 2000);
+    });
+  }
+
+  document.querySelectorAll("input[type='checkbox']").forEach(cb => {
+    const key = "ch3-1-" + cb.dataset.id;
+    cb.checked = localStorage.getItem(key) === "true";
+    cb.addEventListener("change", () => {
+      localStorage.setItem(key, cb.checked);
+    });
+  });
+</script>
+
+</body>
+</html>
