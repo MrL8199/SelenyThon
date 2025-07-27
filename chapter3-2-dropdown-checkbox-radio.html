@@ -92,7 +92,14 @@ driver.quit()</code></pre>
 <h2>☑ Checkbox</h2>
 <p>Website luyện tập: <a href="https://the-internet.herokuapp.com/checkboxes" target="_blank">https://the-internet.herokuapp.com/checkboxes</a></p>
 
-<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>driver.get("https://the-internet.herokuapp.com/checkboxes")
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+import time
+
+driver = webdriver.Chrome(service=Service("./chromedriver"))
+driver.get("https://the-internet.herokuapp.com/checkboxes")
 time.sleep(1)
 
 checkboxes = driver.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
@@ -104,7 +111,14 @@ time.sleep(1)</code></pre>
 <h2>🔘 Radio button</h2>
 <p>Website luyện tập: <a href="https://testpages.herokuapp.com/styled/basic-html-form-test.html" target="_blank">https://testpages.herokuapp.com/styled/basic-html-form-test.html</a></p>
 
-<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html")
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+import time
+
+driver = webdriver.Chrome(service=Service("./chromedriver"))
+driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html")
 time.sleep(1)
 
 radio = driver.find_element(By.CSS_SELECTOR, "input[value='rd1']")
