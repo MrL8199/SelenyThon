@@ -67,9 +67,44 @@
       display: block;
       margin-bottom: 0.5rem;
     }
+    /* Add grid for navigation links */
+    .nav-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .nav-links > div {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+      padding: 1rem;
+      text-align: center;
+    }
+    .nav-links h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #2c3e50;
+    }
+    .nav-links a {
+      font-weight: bold;
+      color: #2e7d32;
+    }
   </style>
 </head>
 <body>
+
+<!-- Link về chương 1 -->
+<div class="nav-links">
+  <div>
+    <h2>🔙 Quay lại</h2>
+    <p><a href="PythonSelenium_d1.html">Chương 1 - Cài Đặt Môi Trường Làm Việc với Python & Selenium</a></p>
+  </div>
+  <div>
+    <h2>➡️ Tiếp theo</h2>
+    <p><a href="PythonSelenium_d2_practice.html">Bài tập thực hành chương 2</a></p>
+  </div>
+</div>
 
 <h1>📘 Chương 2: Viết Bài Test Đầu Tiên với Selenium</h1>
 
@@ -131,6 +166,28 @@ print("✅ Test 2:", "Pass" if "Your username is invalid!" in msg2 else "Fail")
 # Kết thúc
 driver.quit()</code></pre>
 
+
+<h2>Code cho người không sử dụng hàm</h2>
+<pre><button class="copy-button" onclick="copyCode(this)">Copy</button><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+# Khởi tạo driver
+driver.get("https://the-internet.herokuapp.com/login")
+# Test Case 1: Đăng nhập đúng
+driver.find_element(By.ID, "username").send_keys("tomsmith")
+driver.find_element(By.ID, "password").send_keys("SuperSecretPassword!")
+driver.find_element(By.CSS_SELECTOR, "button.radius").click()
+msg1 = driver.find_element(By.ID, "flash").text
+print("✅ Test 1:", "Pass" if "You logged into a secure area!" in msg1 else "Fail")
+
+# Chờ 10 giây để xem kết quả
+time.sleep(10)
+
+driver.quit()
+</code>
+</pre>
+
 <div class="note">
   📌 Sau khi chạy:
   <ul>
@@ -148,13 +205,25 @@ driver.quit()</code></pre>
 
 <p>Chúc bạn thành công!</p>
 
-<!-- Link về chương 1 -->
-<h2>➡️ Quay lại</h2>
-<p><a href="PythonSelenium_d1.html">Chương 1 - Cài Đặt Môi Trường Làm Việc với Python & Selenium</a></p>
+<!-- Bài tập về nhà -->
+<h2>🏠 Bài Tập Về Nhà</h2>
+<p>Hãy thực hiện các bài tập sau để củng cố kiến thức:</p>
+<ul>
+  <li><a href="PythonSelenium_d2_practice.html">Bài tập thực hành chương 2</a></li>
+  <li><a href="PythonSelenium_d2_quiz.html">Quiz chương 2</a></li>
+</ul>
 
-<!-- Link đến chương 3 -->
-<h2>➡️ Tiếp theo</h2>
-<p><a href="PythonSelenium_d3.html">Chương 3 - Tìm Hiểu Về Các Locator trong Selenium</a></p>
+<!-- Link về chương 1 -->
+<div class="nav-links">
+  <div>
+    <h2>🔙 Quay lại</h2>
+    <p><a href="PythonSelenium_d1.html">Chương 1 - Cài Đặt Môi Trường Làm Việc với Python & Selenium</a></p>
+  </div>
+  <div>
+    <h2>➡️ Tiếp theo</h2>
+    <p><a href="PythonSelenium_d2_practice.html">Bài tập thực hành chương 2</a></p>
+  </div>
+</div>
 
 <footer>
   <p>© 2025 Python Selenium Course</p>

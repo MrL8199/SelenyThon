@@ -70,9 +70,43 @@
     a:hover {
       text-decoration: underline;
     }
+    /* Add grid for navigation links */
+    .nav-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .nav-links > div {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+      padding: 1rem;
+      text-align: center;
+    }
+    .nav-links h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #2c3e50;
+    }
+    .nav-links a {
+      font-weight: bold;
+      color: #2e7d32;
+    }
   </style>
 </head>
 <body>
+<!-- Link đến chương 2 -->
+<div class="nav-links">
+  <div>
+    <h2>🔙 Quay lại</h2>
+    <p><a href="index.html">Trang chủ</a></p>
+  </div>
+  <div>
+    <h2>➡️ Tiếp theo</h2>
+    <p><a href="PythonSelenium_d2.html">Chương 2 - Viết Bài Test Đầu Tiên với Selenium</a></p>
+  </div>
+</div>
 
 <h1>📘 Chương 1: Cài Đặt Môi Trường Làm Việc</h1>
 
@@ -169,8 +203,16 @@ driver.quit()</code></pre>
 <p>Chúc bạn thành công!</p>
 
 <!-- Link đến chương 2 -->
-<h2>➡️ Tiếp theo</h2>
-<p><a href="PythonSelenium_d2.html">Chương 2 - Viết Bài Test Đầu Tiên với Selenium</a></p>
+<div class="nav-links">
+  <div>
+    <h2>🔙 Quay lại</h2>
+    <p><a href="index.html">Trang chủ</a></p>
+  </div>
+  <div>
+    <h2>➡️ Tiếp theo</h2>
+    <p><a href="PythonSelenium_d2.html">Chương 2 - Viết Bài Test Đầu Tiên với Selenium</a></p>
+  </div>
+</div>
 
 <footer>
   <p>© 2025 Python Selenium Course</p>

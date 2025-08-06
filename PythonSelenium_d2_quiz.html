@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz Chương 2 – Selenium Cơ Bản</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: auto;
+        padding: 2rem;
+        background-color: #f9f9f9;
+      }
+      h1 {
+        color: #2c3e50;
+      }
+      .quiz-question {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1rem;
+      }
+      .quiz-question h3 {
+        margin-bottom: 0.5rem;
+      }
+      .answers label {
+        display: block;
+        margin: 0.4rem 0;
+        cursor: pointer;
+      }
+      .correct {
+        color: green;
+        font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+        font-weight: bold;
+      }
+      button.reveal {
+        margin-top: 0.5rem;
+        background-color: #e0e0e0;
+        border: none;
+        padding: 4px 8px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      /* Add grid for navigation links */
+      .nav-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+      .nav-links > div {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+        padding: 1rem;
+        text-align: center;
+      }
+      .nav-links h2 {
+        margin-top: 0;
+        font-size: 1.1rem;
+        color: #2c3e50;
+      }
+      .nav-links a {
+        font-weight: bold;
+        color: #2e7d32;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-links">
+      <div>
+        <h2>🔙 Quay lại</h2>
+        <p>
+          <a href="PythonSelenium_d2_practice.html"
+            >Bài tập thực hành chương 2</a
+          >
+        </p>
+      </div>
+      <div>
+        <h2>➡️ Tiếp theo</h2>
+        <p>
+          <a href="PythonSelenium_d3.html"
+            >Chương 3 - Tìm Hiểu Về Các Locator trong Selenium</a
+          >
+        </p>
+      </div>
+    </div>
+    <h1>🧠 Quiz Chương 2 – Selenium Cơ Bản</h1>
+
+    <div class="quiz-question" data-id="q1">
+      <h3>1. Lệnh nào dùng để mở một trang web với Selenium?</h3>
+      <div class="answers">
+        <label
+          ><input type="radio" name="q1" />
+          driver.open("https://example.com")</label
+        >
+        <label
+          ><input type="radio" name="q1" data-correct />
+          driver.get("https://example.com")</label
+        >
+        <label
+          ><input type="radio" name="q1" /> open("https://example.com")</label
+        >
+      </div>
+      <div class="feedback"></div>
+      <button class="reveal">Hiện đáp án</button>
+    </div>
+
+    <div class="quiz-question" data-id="q2">
+      <h3>2. Hàm nào dùng để nhập dữ liệu vào một ô input?</h3>
+      <div class="answers">
+        <label><input type="radio" name="q2" /> driver.input("hello")</label>
+        <label
+          ><input type="radio" name="q2" data-correct />
+          send_keys("hello")</label
+        >
+        <label><input type="radio" name="q2" /> write_text("hello")</label>
+      </div>
+      <div class="feedback"></div>
+      <button class="reveal">Hiện đáp án</button>
+    </div>
+
+    <div class="quiz-question" data-id="q3">
+      <h3>
+        3. Khi muốn click một nút trong Selenium, bạn dùng phương thức nào?
+      </h3>
+      <div class="answers">
+        <label><input type="radio" name="q3" data-correct /> .click()</label>
+        <label><input type="radio" name="q3" /> .press()</label>
+        <label><input type="radio" name="q3" /> .tap()</label>
+      </div>
+      <div class="feedback"></div>
+      <button class="reveal">Hiện đáp án</button>
+    </div>
+
+    <div class="quiz-question" data-id="q4">
+      <h3>4. Câu nào đúng để lấy phần tử có ID là “username”?</h3>
+      <div class="answers">
+        <label
+          ><input type="radio" name="q4" />
+          driver.find_element_by_id("username")</label
+        >
+        <label
+          ><input type="radio" name="q4" data-correct />
+          driver.find_element(By.ID, "username")</label
+        >
+        <label
+          ><input type="radio" name="q4" /> driver.find(By.ID="username")</label
+        >
+      </div>
+      <div class="feedback"></div>
+      <button class="reveal">Hiện đáp án</button>
+    </div>
+
+    <div class="quiz-question" data-id="q5">
+      <h3>5. Muốn chờ trang load trước khi thao tác, nên dùng gì?</h3>
+      <div class="answers">
+        <label><input type="radio" name="q5" /> time.wait(5)</label>
+        <label><input type="radio" name="q5" /> driver.sleep(5)</label>
+        <label
+          ><input type="radio" name="q5" data-correct /> WebDriverWait +
+          expected_conditions</label
+        >
+      </div>
+      <div class="feedback"></div>
+      <button class="reveal">Hiện đáp án</button>
+    </div>
+
+    <div class="nav-links">
+      <div>
+        <h2>🔙 Quay lại</h2>
+        <p>
+            <a href="PythonSelenium_d2_practice.html"
+              >Bài tập thực hành chương 2</a
+          >
+        </p>
+      </div>
+      <div>
+        <h2>➡️ Tiếp theo</h2>
+        <p>
+          <a href="PythonSelenium_d3.html"
+            >Chương 3 - Tìm Hiểu Về Các Locator trong Selenium</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll('.quiz-question').forEach((question) => {
+        const inputs = question.querySelectorAll("input[type='radio']");
+        const feedback = question.querySelector('.feedback');
+        const id = question.dataset.id;
+
+        inputs.forEach((input) => {
+          input.addEventListener('change', () => {
+            const isCorrect = input.hasAttribute('data-correct');
+            feedback.textContent = isCorrect ? '✅ Chính xác!' : '❌ Sai rồi!';
+            feedback.className = isCorrect ? 'correct' : 'incorrect';
+            localStorage.setItem('quiz-' + id, isCorrect);
+          });
+        });
+
+        // Hiện đáp án
+        question.querySelector('.reveal').addEventListener('click', () => {
+          inputs.forEach((input) => {
+            if (input.hasAttribute('data-correct')) {
+              input.parentElement.style.backgroundColor = '#d4edda';
+            }
+          });
+        });
+
+        // Load trạng thái đã chọn nếu có
+        const stored = localStorage.getItem('quiz-' + id);
+        if (stored !== null) {
+          feedback.textContent =
+            stored === 'true' ? '✅ Đã trả lời đúng' : '❌ Đã trả lời sai';
+          feedback.className = stored === 'true' ? 'correct' : 'incorrect';
+        }
+      });
+    </script>
+  </body>
+</html>
